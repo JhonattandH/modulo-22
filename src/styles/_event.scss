@@ -70,8 +70,9 @@
     &__image {
         max-width: 420px;
         border-radius: 8px;
-        width: 100%; // Adicionado para garantir responsividade
-        height: auto; // Mantém proporção da imagem
+        width: 100%;
+        height: auto; // Mantém a proporção da imagem
+        object-fit: cover; // Evita distorção mantendo a proporção
     }
     
     // Media query para tablets
@@ -81,10 +82,47 @@
         }
         
         &__image {
-            max-width: 40%;
+            max-width: 300px;
+            width: 100%;        // Garante que a largura se ajuste ao container
+            height: auto;       // Mantém a proporção original
+            object-fit: cover;  // Preserva a proporção e cobre o container
+            aspect-ratio: auto; // Usa a proporção natural da imagem
+        }
+
+        &__details {
+            max-width: 100%;
+            align-items: flex-start;
+            
+            &--title {
+                font-size: 30px;
+                margin-bottom: 10px;
+                line-height: 38px;
+            }
+            
+            &--text {
+                font-size: 16px;
+                line-height: 28px;
+                
+                &--bold {
+                    font-size: 16px;
+                    line-height: 22px;
+                    font-weight: normal;
+                }
+            }
+            
+            &--list {
+                margin-left: 0;
+                padding-left: 20px;
+                width: fit-content;
+                
+                li {
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
         }
     }
-    
+
     // Media query para smartphones
     @media (max-width: 640px) {
         .container {

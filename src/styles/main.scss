@@ -12,6 +12,10 @@
     font-size: 16px;
 }
 
+html {
+    scroll-behavior: smooth; // Adiciona rolagem suave para todos os links de ancoragem
+}
+
 body {
     overflow-x: hidden; // Adiciona esta linha para garantir que não haja scroll horizontal
     

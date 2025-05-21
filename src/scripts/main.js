@@ -19,8 +19,15 @@ const contagemRegressiva = setInterval(function () {
   const minutos = Math.floor((distanciaAteEvento % contHoras) / contMinutos);
   const segundos = Math.floor((distanciaAteEvento % contMinutos) / contSegundos);
 
+  // Verifique se o elemento existe antes de tentar modificá-lo
+  const counterElement = document.getElementById('counter');
+  if (counterElement) {
+      // aqui vai o código que modifica o elemento
+      counterElement.innerHTML = `${dias} d ${horas} h ${minutos} m e ${segundos} s.`;
+  } else {
+      console.error("Elemento com ID 'counter' não foi encontrado!");
+  }
 
-  document.getElementById("counter").innerHTML = `${dias} d ${horas} h ${minutos} m e ${segundos} s.`;
   if (distanciaAteEvento < 0) {
     clearInterval(contagemRegressiva);
     document.querySelector(".hero__countdown").innerHTML = `ATRASADO!\nAs Almas ja foram colhidas!`;
