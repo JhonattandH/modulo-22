@@ -20,11 +20,10 @@ const contagemRegressiva = setInterval(function () {
   const segundos = Math.floor((distanciaAteEvento % contMinutos) / contSegundos);
 
 
-  document.getElementById("counter").innerText = `${dias} d ${horas} h ${minutos} m e ${segundos} s.`;
-  console.log(dias, horas, minutos, segundos);
+  document.getElementById("counter").innerHTML = `${dias} d ${horas} h ${minutos} m e ${segundos} s.`;
   if (distanciaAteEvento < 0) {
     clearInterval(contagemRegressiva);
-    document.querySelector(".hero__countdown").innerText = `ATRASADO!\nAs Almas ja foram colhidas!`;
+    document.querySelector(".hero__countdown").innerHTML = `ATRASADO!\nAs Almas ja foram colhidas!`;
     document.querySelector(".hero__countdown").style.color = "red";
     document.querySelector(".hero__countdown").style.lineHeight = "50px";
   }

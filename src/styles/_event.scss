@@ -1,60 +1,19 @@
 @use "colors.scss";
 
 .event__location {
-    padding-top:40px;
-    padding-bottom: 20px;
     background-image: colors.$color-background-linear-1;
-
-    .container {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    &__details {
-        max-width: 800px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        &--title {
-            font-size: 40px;
-            font-weight: bold;
-            color: colors.$color-primary;
-        }
-
-        &--text {
-            line-height: 30px;
-
-            &--bold {
-                font-size: 20px;
-                font-weight: bold;
-                line-height: 40px;
-                padding-bottom: 20px;
-            }
-        }
-
-        &--link {
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 20px;
-            color: colors.$color-primary;
-            text-decoration: underline;
-            font-family: "Shadows Into Light", cursive;
-        }
-    }
-
-    &__image {
-        max-width: 420px;
-        border-radius: 8px;
-    }
 }
 
 .event__dresscode {
+    background-image: colors.$color-background-linear-2;
+}
+
+.event {
     padding-top:40px;
     padding-bottom: 20px;
-    background-image: colors.$color-background-linear-2;
     max-width: 100%;
     overflow-x: hidden;
+    overflow-y: hidden;
 
     .image-left {
         flex-direction: row-reverse;
@@ -111,5 +70,67 @@
     &__image {
         max-width: 420px;
         border-radius: 8px;
+        width: 100%; // Adicionado para garantir responsividade
+        height: auto; // Mantém proporção da imagem
+    }
+    
+    // Media query para tablets
+    @media (max-width: 1024px) {
+        .container {
+            gap: 20px;
+        }
+        
+        &__image {
+            max-width: 40%;
+        }
+    }
+    
+    // Media query para smartphones
+    @media (max-width: 640px) {
+        .container {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .image-left {
+            flex-direction: column;
+        }
+        
+        &__image {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        &__details {
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            
+            &--title {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+            
+            &--text {
+                font-size: 14px;
+                line-height: 24px;
+                
+                &--bold {
+                    font-size: 16px;
+                    line-height: 28px;
+                }
+            }
+            
+            &--list {
+                margin-left: 0;
+                padding-left: 20px;
+                width: fit-content;
+                
+                li {
+                    font-size: 14px;
+                    line-height: 24px;
+                }
+            }
+        }
     }
 }

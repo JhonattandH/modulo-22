@@ -17,7 +17,9 @@
         width: 800px;
 
         &--image {
-        max-width:  600px;
+        max-width: 600px;
+        width: 100%;
+        height: auto;
          }
 
         &--title {
@@ -34,6 +36,7 @@
             font-size: 20px;
             line-height: 30px;
             gap: 10px;
+            width: 100%; /* Adicionado para garantir que ocupe toda a largura disponível */
 
             &--bold {
                 font-weight: bold;
@@ -81,4 +84,61 @@
             font-family: "Shadows Into Light", cursive;
         }
     }
-}   
+    
+    /* Adicione estas media queries */
+    @media (max-width: 1024px) {
+        .container {
+            gap: 20px;
+        }
+        
+        &__form {
+            width: 60%;
+            
+            &--image {
+                max-width: 35%;
+            }
+            
+            &--questions {
+                input, button {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    
+    @media (max-width: 640px) {
+        .container {
+            flex-direction: column-reverse;
+        }
+        
+        &__form {
+            width: 100%;
+            align-items: center;
+            
+            &--title {
+                font-size: 28px;
+                text-align: center;
+            }
+            
+            &--questions {
+                align-items: center;
+                width: 100%;
+                font-size: 16px;
+                
+                input, button {
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+            
+            &--image {
+                max-width: 80%;
+                margin-bottom: 20px;
+            }
+            
+            p {
+                text-align: center;
+            }
+        }
+    }
+}
